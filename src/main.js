@@ -372,10 +372,10 @@ StepZilla.propTypes = {
   dontValidate: PropTypes.bool,
   preventEnterSubmission: PropTypes.bool,
   startAtStep: PropTypes.number,
-  nextButtonText: PropTypes.string,
+  nextButtonText: PropTypes.object,
   nextButtonCls: PropTypes.string,
   backButtonCls: PropTypes.string,
-  backButtonText: PropTypes.string,
+  backButtonText: PropTypes.object,
   hocValidationAppliedTo: PropTypes.array,
   onStepChange: PropTypes.func
 };
