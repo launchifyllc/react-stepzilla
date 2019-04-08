@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -11,9 +11,9 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _promise = _interopRequireDefault(require("promise"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj["default"] = obj; return newObj; } }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -214,7 +214,7 @@ function (_Component) {
               });
             }
           }
-        }).catch(function () {
+        })["catch"](function () {
           // Promise based validation was a fail (i.e reject())
           if (!movingBack) {
             _this3.updateStepValidationFlag(false);
@@ -228,7 +228,7 @@ function (_Component) {
               _this3.setNavState(evt.target.value);
             }
           }
-        }).catch(function (e) {
+        })["catch"](function (e) {
           if (e) {
             // see note below called "CatchRethrowing"
             // ... plus the finally then() above is what throws the JS Error so we need to catch that here specifically
@@ -255,7 +255,7 @@ function (_Component) {
         if (proceed) {
           _this4.setNavState(_this4.state.compState + 1);
         }
-      }).catch(function (e) {
+      })["catch"](function (e) {
         if (e) {
           // CatchRethrowing: as we wrap StepMoveAllowed() to resolve as a Promise, the then() is invoked and the next React Component is loaded.
           // ... during the render, if there are JS errors thrown (e.g. ReferenceError) it gets swallowed by the Promise library and comes in here (catch)
@@ -322,7 +322,7 @@ function (_Component) {
   }, {
     key: "abstractStepMoveAllowedToPromise",
     value: function abstractStepMoveAllowedToPromise(movingBack) {
-      return _promise.default.resolve(this.stepMoveAllowed(movingBack));
+      return _promise["default"].resolve(this.stepMoveAllowed(movingBack));
     } // get the classmame of steps
 
   }, {
@@ -343,14 +343,14 @@ function (_Component) {
       var _this5 = this;
 
       return this.props.steps.map(function (s, i) {
-        return _react.default.createElement("li", {
+        return _react["default"].createElement("li", {
           className: _this5.getClassName('progtrckr', i),
           onClick: function onClick(evt) {
             _this5.jumpToStep(evt);
           },
           key: i,
           value: i
-        }, _react.default.createElement("em", null, i + 1), _react.default.createElement("span", null, _this5.props.steps[i].name));
+        }, _react["default"].createElement("em", null, i + 1), _react["default"].createElement("span", null, _this5.props.steps[i].name));
       });
     } // main render of stepzilla container
 
@@ -379,19 +379,19 @@ function (_Component) {
         cloneExtensions.ref = 'activeComponent';
       }
 
-      var compToRender = _react.default.cloneElement(componentPointer, cloneExtensions);
+      var compToRender = _react["default"].cloneElement(componentPointer, cloneExtensions);
 
-      return _react.default.createElement("div", {
+      return _react["default"].createElement("div", {
         className: "multi-step",
         onKeyDown: function onKeyDown(evt) {
           _this6.handleKeyDown(evt);
         }
-      }, this.props.showSteps ? _react.default.createElement("ol", {
+      }, this.props.showSteps ? _react["default"].createElement("ol", {
         className: "progtrckr"
-      }, this.renderSteps()) : _react.default.createElement("span", null), compToRender, _react.default.createElement("div", {
+      }, this.renderSteps()) : _react["default"].createElement("span", null), compToRender, _react["default"].createElement("div", {
         style: this.props.showNavigation ? {} : this.hidden,
         className: "footer-buttons"
-      }, _react.default.createElement("button", {
+      }, _react["default"].createElement("button", {
         type: "button",
         style: showPreviousBtn ? {} : this.hidden,
         className: props.backButtonCls,
@@ -399,7 +399,7 @@ function (_Component) {
           _this6.previous();
         },
         id: "prev-button"
-      }, this.props.backButtonText), _react.default.createElement("button", {
+      }, this.props.backButtonText), _react["default"].createElement("button", {
         type: "button",
         style: showNextBtn ? {} : this.hidden,
         className: props.nextButtonCls,
@@ -414,7 +414,7 @@ function (_Component) {
   return StepZilla;
 }(_react.Component);
 
-exports.default = StepZilla;
+exports["default"] = StepZilla;
 StepZilla.defaultProps = {
   showSteps: true,
   showNavigation: true,
@@ -430,21 +430,21 @@ StepZilla.defaultProps = {
   hocValidationAppliedTo: []
 };
 StepZilla.propTypes = {
-  steps: _propTypes.default.arrayOf(_propTypes.default.shape({
-    name: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]).isRequired,
-    component: _propTypes.default.element.isRequired
+  steps: _propTypes["default"].arrayOf(_propTypes["default"].shape({
+    name: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].object]).isRequired,
+    component: _propTypes["default"].element.isRequired
   })).isRequired,
-  showSteps: _propTypes.default.bool,
-  showNavigation: _propTypes.default.bool,
-  stepsNavigation: _propTypes.default.bool,
-  prevBtnOnLastStep: _propTypes.default.bool,
-  dontValidate: _propTypes.default.bool,
-  preventEnterSubmission: _propTypes.default.bool,
-  startAtStep: _propTypes.default.number,
-  nextButtonText: _propTypes.default.string,
-  nextButtonCls: _propTypes.default.string,
-  backButtonCls: _propTypes.default.string,
-  backButtonText: _propTypes.default.string,
-  hocValidationAppliedTo: _propTypes.default.array,
-  onStepChange: _propTypes.default.func
+  showSteps: _propTypes["default"].bool,
+  showNavigation: _propTypes["default"].bool,
+  stepsNavigation: _propTypes["default"].bool,
+  prevBtnOnLastStep: _propTypes["default"].bool,
+  dontValidate: _propTypes["default"].bool,
+  preventEnterSubmission: _propTypes["default"].bool,
+  startAtStep: _propTypes["default"].number,
+  nextButtonText: _propTypes["default"].object,
+  nextButtonCls: _propTypes["default"].string,
+  backButtonCls: _propTypes["default"].string,
+  backButtonText: _propTypes["default"].object,
+  hocValidationAppliedTo: _propTypes["default"].array,
+  onStepChange: _propTypes["default"].func
 };
